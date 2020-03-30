@@ -20,9 +20,11 @@ app.use(cookieParser());
 app.use(expressValidator());
 
 // * Routes
+const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
 
 // * Route middleware
+app.use('/api', authRoutes);
 app.use('/api', userRoutes);
 
 app.get('/', (req, res) => {
