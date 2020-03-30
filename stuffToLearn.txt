@@ -1,3 +1,7 @@
 STUFF I DIDNT GET 
 
 mongoose virutal fields and methods 
+
+router.param 
+
+expressjwt()
