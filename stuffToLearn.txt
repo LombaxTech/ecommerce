@@ -5,3 +5,6 @@ mongoose virutal fields and methods
 router.param 
 
 expressjwt()
+
+
+constantly search on indeed, spend 2 hours on project per day
