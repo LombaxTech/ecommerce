@@ -1,6 +1,6 @@
 STUFF I DIDNT GET 
 
-mongoose virutal fields and methods 
+mongoose virutal fields and methods // auth methods
 
 router.param 
 
