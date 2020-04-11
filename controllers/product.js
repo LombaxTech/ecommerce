@@ -4,7 +4,7 @@ const fs = require('fs');
 const Product = require('../models/product');
 const { errorHandler } = require('../helpers/dbErrorHandler');
 
-exports.productById = (req, res, next, id) => {
+exports.productId = (req, res, next, id) => {
     Product.findById(id).exec((err, product) => {
         if (err || !product) {
             return res.status(400).json({
@@ -14,6 +14,11 @@ exports.productById = (req, res, next, id) => {
         req.product = product;
         next();
     })
+}
+
+exports.read = (req, res) => {
+    req.product.photo = undefined;
+    return res.json(req.product);
 }
 
 exports.create = (req, res) => {
@@ -61,5 +66,19 @@ exports.create = (req, res) => {
         });
 
     });
+}
 
+exports.remove = (req, res) => {
+    let product = req.product;
+    product.remove((err, deletedProduct) => {
+        if (err) {
+            return res.status(400).json({
+                error: errorHandler(err)
+            });
+        }
+        return res.json({
+            deletedProduct,
+            msg: 'product has been deleted'
+        })
+    });
 }
