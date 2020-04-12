@@ -3,6 +3,7 @@ STUFF I DIDNT GET
 mongoose virutal fields and methods // auth methods
 
 router.param 
+git version control
 
 expressjwt()
 

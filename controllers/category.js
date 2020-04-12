@@ -38,7 +38,7 @@ exports.update = (req, res) => {
     category.save((err, data) => {
         if (err) {
             return res.status(400).json({
-                error: errorHandler(err);
+                error: errorHandler(err)
             });
         }
         return res.json(data);
@@ -50,7 +50,7 @@ exports.remove = (req, res) => {
     category.remove((err, data) => {
         if (err) {
             return res.status(400).json({
-                error: errorHandler(err);
+                error: errorHandler(err)
             });
         }
         return res.json({
@@ -60,6 +60,13 @@ exports.remove = (req, res) => {
 }
 
 exports.list = (req, res) => {
-
+    Category.find().exec((err, data) => {
+        if (err) {
+            return res.status(400).json({
+                error: errorHandler(err)
+            });
+        }
+        return res.json(data);
+    })
 }
 
