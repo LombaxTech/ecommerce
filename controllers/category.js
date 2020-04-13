@@ -69,4 +69,3 @@ exports.list = (req, res) => {
         return res.json(data);
     })
 }
-
