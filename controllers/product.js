@@ -156,3 +156,39 @@ exports.list = (req, res) => {
 // by arrival = /products?sortBy=arrival
 // if no params, then send all products 
 // these queries come fromt the front end client 
+
+exports.listRelated = (req, res) => {
+    let limit = req.query.limit ? parseInt(req.query.limit) : 6;
+
+    Product.find(
+        {
+            _id: { $ne: req.product },
+            category: req.product.category
+        }
+    )
+        .limit(limit)
+        .populate('category', '_id name')
+        .exec((err, products) => {
+            if (err) {
+                return res.status(400).json({
+                    error: err
+                })
+            }
+
+            res.json(products)
+        })
+}
+
+exports.listCategories = (req, res) => {
+
+    Product.distinct('category', {}, (err, categories) => {
+        if (err) {
+            return res.status(400).json({
+                error: err
+            })
+        }
+
+        res.json(categories)
+    })
+
+}
