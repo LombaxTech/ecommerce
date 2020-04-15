@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const expressValidator = require('express-validator');
+const cors = require('cors');
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use(morgan('dev'));
 app.use(express.json()); //Used to parse JSON bodies
 app.use(cookieParser());
 app.use(expressValidator());
+app.use(cors());
 
 // * Routes
 const authRoutes = require('./routes/auth');
