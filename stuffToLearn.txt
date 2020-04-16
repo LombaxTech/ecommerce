@@ -12,3 +12,8 @@ req.query
 constantly search on indeed, spend 2 hours on project per day
 
 population
+
+.distinct
+
+useState()
+useEffect()
