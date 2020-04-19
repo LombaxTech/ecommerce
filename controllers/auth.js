@@ -5,7 +5,7 @@ const expressJwt = require('express-jwt');
 const { errorHandler } = require('../helpers/dbErrorHandler');
 
 exports.signup = (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     const user = new User(req.body);
     user.save()
         .then(() => res.json({ user }))

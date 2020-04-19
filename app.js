@@ -37,5 +37,5 @@ app.get('/', (req, res) => {
     res.send('homepage');
 })
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, console.log('started listening'));
